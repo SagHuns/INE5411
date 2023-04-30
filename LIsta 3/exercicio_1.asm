@@ -77,15 +77,64 @@
 		
 		# Ou seja, posso sobrescrever os registradores temporários.
 			
-		# ----------- Inicio questão C) -------------- #
+		# ----------- Inicio questão c) -------------- #
+		
+		
+		addi $t4, $zero, 4  # Declarando ponteiro para G[1]
+		lw $t5, G($t4)  # Carregando G[1] em $t5
 		
 		# Cálculo de G[1] – C;
-		addi $t4, $zero, 4  # Declarando ponteiro para G[1]
-		lw $t5, G($t4)
-		
-		sub $t5, $t5, $s2
+		sub $t5, $t5, $s2 
 		sw $t5, G($t3)
-			addi $t3, $t3, 4
+			addi $t3, $t3, 4  # Agora o ponteiro está apontando para o quarto elemento do vetor.
+
+		# ----------- Fim questão c) -------------- #
+		
+		# Ou seja, posso sobrescrever os registradores temporários.
+			
+		# ----------- Inicio questão d) -------------- #
+
+		addi $t0, $zero, 8  # Ponteiro para G[2]
+		lw $t1, G($t0)  # Carrego no registrador $t1 o valor de G[2]
+		addi $t2, $zero, 0
+		lw $t4, G($t2)
+		
+
+		# Cálculo de G[2] + G[0];
+		add $t1, $t1, $t4  # 
+		# Armazenando em G[3]
+		sw $t1, G($t3)
+
+		# ----------- Fim questão d) -------------- #
+		
+		# Ou seja, posso sobrescrever os registradores temporários.
+			
+		# ----------- Inicio questão e) -------------- #
+
+		# H[0] = B - C
+		addi $t0, $zero, 0  # Ponteiro para o primeiro elemento do array
+		
+		sub $t1, $s1, $s2  # B - C
+		sw $t1, H($t0)  # Armazenando em H[0] B - C
+
+		# ----------- Fim questão e) -------------- #
+		
+		# Ou seja, posso sobrescrever os registradores temporários.
+			
+		# ----------- Inicio questão f) -------------- #
+		# H[1] = A + C
+		addi $t0, $t0, 4  # Apontando para o segundo elemento do array
+
+		add $t1, $s0, $s2
+		sw $t1, H($t0)
+
+		# ----------- Fim questão f) -------------- #
+		
+		# Ou seja, posso sobrescrever os registradores temporários.
+			
+		# ----------- Inicio questão g) -------------- #
+		# H[2] = B - C + G[3]
+		
 		
 	
 		
